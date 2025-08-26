@@ -77,7 +77,9 @@ const CoreFunctionality = () => {
           {features.map((feature, i) => (
             <li
               key={i}
-              ref={(el) => (listRefs.current[i] = el)}
+              ref={(el) => {
+                listRefs.current[i] = el;
+              }}
               className="py-6 flex items-start gap-4 px-4 hover:bg-slate-800/20 rounded-lg transition-colors duration-300"
             >
               <feature.icon className="w-6 h-6 text-indigo-400 mt-1 transition-transform duration-300 group-hover:scale-110" />

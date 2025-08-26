@@ -2,7 +2,16 @@ import React, { useState } from "react";
 import Tilt from "react-parallax-tilt";
 import { Check } from "lucide-react";
 
-const industries = {
+// Define the type for each industry
+interface Industry {
+  title: string;
+  icon: string; // Using string for emojis
+  description: string;
+  benefits: string[];
+}
+
+// Define the industries object with proper typing
+const industries: Record<string, Industry> = {
   retail: {
     title: "Retail",
     icon: "🛒",
@@ -49,20 +58,20 @@ const industries = {
   },
 };
 
-const IndustrySection = () => {
-  const [activeTab, setActiveTab] = useState("retail");
+const IndustrySection: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<keyof typeof industries>("retail");
 
   return (
-    <section className="py-12 ">
+    <section className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-center mb-12 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent hero-title">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-center mb-12 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent animate-text-shine">
           Who Is GARO For?
         </h2>
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           {Object.keys(industries).map((key) => (
             <button
               key={key}
-              onClick={() => setActiveTab(key)}
+              onClick={() => setActiveTab(key as keyof typeof industries)}
               className={`relative px-6 py-3 rounded-lg font-semibold transition-all duration-200 focus:outline-none cursor-pointer ${
                 activeTab === key
                   ? "bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] text-white shadow-lg transform scale-105"
@@ -70,8 +79,8 @@ const IndustrySection = () => {
               }`}
             >
               <span className="flex items-center space-x-2">
-                <span>{industries[key].icon}</span>
-                <span>{industries[key].title}</span>
+                <span>{industries[key as keyof typeof industries].icon}</span>
+                <span>{industries[key as keyof typeof industries].title}</span>
               </span>
             </button>
           ))}
@@ -86,7 +95,7 @@ const IndustrySection = () => {
             </p>
             <div className="space-y-3">
               {industries[activeTab].benefits.map((benefit, i) => (
-                <div key={i} className="flex items-center space-x-3">
+                <div key={benefit} className="flex items-center space-x-3">
                   <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
                   <span className="text-gray-800">{benefit}</span>
                 </div>
@@ -95,23 +104,22 @@ const IndustrySection = () => {
           </div>
         </Tilt>
       </div>
-
-      <style jsx>{`
-        .hero-title {
-          background-size: 200% auto;
-          animation: textShine 5s ease-in-out infinite alternate;
-        }
-        @keyframes textShine {
-          0% {
-            background-position: 0% 50%;
-          }
-          100% {
-            background-position: 100% 50%;
-          }
-        }
-      `}</style>
     </section>
   );
 };
+
+// Move animation to a CSS file or inline with Tailwind
+// For Tailwind, use animate-pulse or custom keyframes via a CSS file
+// Example CSS (save as industry-section.css and import):
+/*
+@keyframes textShine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+.animate-text-shine {
+  background-size: 200% auto;
+  animation: textShine 5s ease-in-out infinite alternate;
+}
+*/
 
 export default IndustrySection;

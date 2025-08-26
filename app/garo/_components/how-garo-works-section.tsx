@@ -33,8 +33,22 @@ const steps = [
   },
 ];
 
-const Card = ({ item, i }) => {
-  const cardRef = useRef(null);
+interface Step {
+  step: number;
+  title: string;
+  desc: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+}
+
+interface CardProps {
+  item: Step;
+  i: number;
+}
+
+const Card = ({ item, i }: CardProps) => {
+
+
+    const cardRef = useRef(null);
 
   useEffect(() => {
     if (!cardRef.current) return;
