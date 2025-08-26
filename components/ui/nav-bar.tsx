@@ -17,7 +17,7 @@ interface NavItem {
 }
 
 interface NavBarProps {
-  navItems: NavItem[];
+  navItems?: NavItem[];
   logoText?: string;
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: (open: boolean) => void;

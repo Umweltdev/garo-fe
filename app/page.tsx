@@ -186,7 +186,6 @@ const GAROLandingPage = () => {
       `}</style>
       {/* Navigation */}
       <NavBar
-        navItems={navItems}
         logoText="GARO"
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
