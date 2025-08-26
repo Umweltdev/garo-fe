@@ -46,9 +46,7 @@ interface CardProps {
 }
 
 const Card = ({ item, i }: CardProps) => {
-
-
-    const cardRef = useRef(null);
+  const cardRef = useRef(null);
 
   useEffect(() => {
     if (!cardRef.current) return;
@@ -69,15 +67,19 @@ const Card = ({ item, i }: CardProps) => {
 
   return (
     <div ref={cardRef} className="relative group">
-      <div className="bg-gradient-to-br from-purple-900/40 to-indigo-900/40 backdrop-blur-xl rounded-2xl p-8 border border-purple-400/30 transition-all duration-300">
-        <div className="bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full w-12 h-12 flex items-center justify-center mb-4 shadow-md">
-          <span className="font-bold text-lg text-white">{item.step}</span>
+      <div className="p-8 transition-all duration-300 transform shadow-lg bg-gradient-to-br from-indigo-800/50 to-purple-800/50 backdrop-blur-lg rounded-3xl hover:scale-105 hover:shadow-2xl">
+        <div className="flex items-center justify-between mb-6">
+          <item.icon className="w-10 h-10 text-purple-300 transition-transform duration-300 group-hover:scale-110 group-hover:text-purple-200" />
+          <div className="flex items-center justify-center rounded-full shadow-lg w-14 h-14 bg-gradient-to-r from-purple-500 to-indigo-500">
+            <span className="text-xl font-extrabold text-white">
+              {item.step}
+            </span>
+          </div>
         </div>
-        <item.icon className="w-8 h-8 text-purple-300 mb-4 group-hover:text-purple-200 transition-colors duration-300" />
-        <h3 className="font-bold text-lg mb-2 text-white group-hover:text-purple-100 transition-colors duration-300">
+        <h3 className="mb-3 text-xl font-bold text-white transition-colors duration-300 group-hover:text-purple-100">
           {item.title}
         </h3>
-        <p className="text-indigo-200/80 text-sm group-hover:text-indigo-100 transition-colors duration-300">
+        <p className="text-sm leading-relaxed transition-colors duration-300 text-indigo-200/90 group-hover:text-indigo-100">
           {item.desc}
         </p>
       </div>
@@ -90,15 +92,15 @@ const Card = ({ item, i }: CardProps) => {
 //
 export const HowGaroWorksFade = () => {
   return (
-    <section className="relative py-20 mt-10 px-6 overflow-hidden">
+    <section className="relative px-6 py-20 mt-10 overflow-hidden">
       {/* Only dark gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-indigo-950 z-0" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-slate-900 to-indigo-950" />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 to-indigo-100 bg-clip-text text-transparent">
+      <div className="relative z-10 mx-auto max-w-7xl">
+        <h2 className="mb-12 text-4xl font-bold text-center text-transparent bg-gradient-to-r from-purple-400 to-indigo-100 bg-clip-text">
           How GARO Works
         </h2>
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid gap-8 md:grid-cols-4">
           {steps.map((item, i) => (
             <Card key={i} item={item} i={i} />
           ))}
@@ -114,16 +116,16 @@ export const HowGaroWorksFade = () => {
 //
 export const HowGaroWorksCard = () => {
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-6xl mx-auto relative rounded-3xl overflow-hidden shadow-2xl">
+    <section className="px-6 py-20">
+      <div className="relative max-w-6xl mx-auto overflow-hidden shadow-2xl rounded-3xl">
         {/* Dark background inside the card */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-indigo-950" />
 
         <div className="relative z-10 p-12">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 to-indigo-100 bg-clip-text text-transparent">
+          <h2 className="mb-12 text-4xl font-bold text-center text-transparent bg-gradient-to-r from-purple-400 to-indigo-100 bg-clip-text">
             How GARO Works
           </h2>
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid gap-8 md:grid-cols-4">
             {steps.map((item, i) => (
               <Card key={i} item={item} i={i} />
             ))}
