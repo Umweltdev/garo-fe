@@ -29,25 +29,26 @@ const HeroSection = () => {
 
         {/* Headline with text reveal animation */}
         <h1 className="hero-title text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-[#6E3EF4] to-[#409AFF] bg-clip-text text-transparent leading-tight tracking-tight">
-          Revolutionize Restocking. <br /> Slash Waste. End Stockouts.
+          Evolve Your Restocking. Cut Waste <br /> Reduce Stockouts.
         </h1>
 
         <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed">
-          Powered by Genetic Algorithms and SquareUp API Integration, our
-          intelligent engine optimizes your inventory like never before.
+          Genetic Algorithm Restocking Optimisation with SquareUp API
+          Integration — the intelligent evolution engine that transforms your
+          inventory management
         </p>
 
         {/* CTA Buttons with shine effect and tilt */}
         <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
           <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10}>
             <button
-              className="relative px-8 py-4 rounded-xl text-lg font-semibold text-white transform hover:scale-105 transition-all duration-300  hover:shadow-2xl group overflow-hidden"
+              className="relative px-8 py-4 h-16 sm:h-auto rounded-xl text-lg font-semibold text-white transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group overflow-hidden flex items-center justify-center"
               style={{
                 background: "linear-gradient(90deg, #6E3EF4 0%, #409AFF 100%)",
               }}
             >
               <span className="relative z-10 flex items-center justify-center">
-                Run Free Simulation
+                Simulate My Strategy
                 <svg
                   className="inline ml-2 w-5 h-5 group-hover:animate-bounce"
                   fill="none"
@@ -68,8 +69,11 @@ const HeroSection = () => {
           </Tilt>
 
           <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10}>
-            <button className="relative px-8 py-4 border-2 border-[#6E3EF4] rounded-xl text-lg font-semibold text-[#6E3EF4] hover:bg-[#6E3EF4]/10 hover:text-[#409AFF] transition-all duration-300 group overflow-hidden">
-              <span className="relative z-10">Book Consultation (€40-€75)</span>
+            <button className="relative px-8 py-4 h-16 sm:h-auto border-2 border-[#6E3EF4] rounded-xl text-lg font-semibold text-[#6E3EF4] hover:bg-[#6E3EF4]/10 hover:text-[#409AFF] transition-all duration-300 group overflow-hidden flex items-center justify-center">
+              <span className="relative z-10">
+                {" "}
+                Book Consultation (€40-€75)
+              </span>
               <div className="absolute inset-0 bg-[#6E3EF4]/5 group-hover:bg-[#6E3EF4]/15 transition-colors duration-300"></div>
             </button>
           </Tilt>
