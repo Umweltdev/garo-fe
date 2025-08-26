@@ -140,8 +140,6 @@ const GAROLandingPage = () => {
     },
   };
 
-  const navItems = [{}];
-
   const faqs = [
     {
       q: "What if I already use an ERP?",
