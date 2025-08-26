@@ -3,7 +3,7 @@ import { Brain } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-purple-800 to-indigo-900 py-6 mt-10">
+    <footer className="bg-gradient-to-r from-purple-800 to-indigo-900 py-6">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 px-6">
         {/* Logo + Title */}
         <div className="flex items-center space-x-3">
